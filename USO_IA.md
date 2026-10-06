@@ -1,0 +1,12 @@
+# Declaración de uso de inteligencia artificial
+
+- **Herramienta(s):** Google Gemini (modelo generativo de lenguaje y análisis de datos).
+- **Propósito del uso:** Asistencia en la estructuración del repositorio reproducible, revisión de formato tipográfico para tablas y ecuaciones en LaTeX (`booktabs`, `amsmath`), generación de formato gráfico de alta resolución y discusión conceptual sobre limitaciones mecánicas (influencia del esfuerzo de corte de Timoshenko frente a Euler-Bernoulli).
+- **Consulta o tarea realizada (resuma o enlace el registro pertinente):** Se consultó el diseño de una estructura de directorios trazable para el Hito 1, la sintaxis de las tablas en LaTeX a partir de los resultados obtenidos para `datos_viga.csv` y `parametros_viga.xlsx`, y el contraste analítico de la flexibilidad teórica ($0.05000\text{ mm/kN}$) frente a la flexibilidad experimental media ($0.05094\text{ mm/kN}$).
+- **Contenido incorporado al trabajo:** Estructura de plantillas en Markdown (`README.md`), formato de código LaTeX en `report/main.tex` y enfoque de la discusión sobre la esbeltez $L/h = 10$ y el aporte de deformación por corte en la sección de interpretación.
+- **Procedimiento de verificación:** 
+  1. **Verificación matemática manual:** Se recalculó manualmente con calculadora científica el momento de inercia ($I = 0.2 \times 0.4^3 / 12 = 1.0667 \times 10^{-3}\text{ m}^4$) y la deflexión para $P = 20\text{ kN}$ ($\delta_{\text{teo}} = 1.00\text{ mm}$), contrastando que todas las celdas de `analysis/analisis_viga.xlsx` arrojaran resultados idénticos.
+  2. **Análisis dimensional:** Se comprobó algebraicamente la cancelación de unidades en el sistema $(\text{N}, \text{mm})$ antes de dar por válidos los números.
+  3. **Verificación bibliográfica:** Las ecuaciones de flexión y corte se contrastaron directamente con los textos de Mecánica de Materiales de Hibbeler (9a ed.) y Gere & Goodno (8a ed.).
+- **Cambios, correcciones o contenido descartado:** Se descartó el cálculo de diferencia relativa para el estado de carga $P = 0\text{ kN}$ con el fin de evitar una indeterminación matemática ($0/0$), documentando explícitamente la condición $P > 0$ mediante funciones condicionales (`IF(A4=0, NA(), ...)`). Asimismo, se ajustaron las rutas relativas de las imágenes en `main.tex` (`../figures/`) para asegurar la compilación limpia dentro de la carpeta `report/`.
+- **Responsabilidad final:** Declaro comprender y poder defender el contenido entregado.
